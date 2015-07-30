@@ -10,7 +10,7 @@ where:
 * < associativity > is one of: direct - simulate a direct mapped cache, assoc - simulate a fully associative cache, assoc:n - simulate an n − way associative cache. n should be a power of 2.
 * < blocksize > is an power of 2 integer that specifies the size of the cache block.
 * < writepolicy > is one of: wt - simulate a write through cache, wb - simulate a write back cache.
-* < tracefile > is the name of a file that contains a memory access traces. 
+* < tracefile > is the name of the text file which contains memory access traces. 
 
 Example Traces: (The first is a write, while the second is a read.)
 
