@@ -18,7 +18,7 @@ Example Traces: (The first is a write, while the second is a read.)
 
 0x37cfff: R 0x39dfc0
 
-#### Method
+#### Process
   The cache simulator first reads in inputs from the command line from the user. After it checks to see if all of the inputs are valid, it then goes and starts reading from the file. After checking the inputs, the simulator finds the number of sets, lines, bits needed for the set index, and bits needed for the block offset. The bits for the set index and the bits for the block offset are set using set_subs(). After that, since it needs a cache to read and write to, it calls create_cold_cache() to create a new empty cache. Next, whenever the simulator reads in a new line, the first thing it does it convert it to binary using convert_to_binary(). If the write condition is “wt”, it calls either write_to_cache() or read_to_cache() depending on whether or not we are reading or writing to the cache. If the write condition is “wb”, write_to_cache_wb() or read_to_cache_wb() depending on whether or not we are reading or writing to the cache.
 
   These functions are where everything is implemented and the number of cache hits and misses, memory reads and writes are incremented. Since this is the bulk of the logic, these will be explained later on below. These functions all implement the same helper functions, get_tag_length(), get_index(), and update_recents(). The simulator uses get_tag_length() to get the number of tag bits that are allocated for the tag. It calculates this by subtracting the number of bits needed for the set index and the number of bits needed for the block offset from the length of the binary address. 
